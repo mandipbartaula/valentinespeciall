@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yay! Biru Said Yes! ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="yes_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="content-container">
+        <h1 class="celebration-text">Yay! She said YES! 💖</h1>
+        <p class="love-note">My dearest Birangana (Biru), you've made me the happiest person alive!</p>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="./biru1.jpg" alt="My Love Biru">
+                <div class="caption">My Heart</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./biru2.jpg" alt="Beautiful Birangana">
+                <div class="caption">My Soul</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./biru3.jpg" alt="Forever Together">
+                <div class="caption">My Everything</div>
+            </div>
+        </div>
+
+        <p class="footer-msg">I love you more than words can say. Happy Valentine's Day! 🌹</p>
+    </div>
+
+    <script>
+        // Trigger confetti on load
+        window.onload = function () {
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            var random = function (min, max) { return Math.random() * (max - min) + min; };
+
+            var interval = setInterval(function () {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+
+                // since particles fall down, start a bit higher than random
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        };
+    </script>
+</body>
+
+</html>
